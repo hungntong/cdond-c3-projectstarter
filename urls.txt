@@ -11,3 +11,16 @@ Public URLs to deployed application back-end in EC2 [URL04]
 
 
 Public URL to your Prometheus Server [URL05]
+
+
+AKIA5WNSCYBSC6X264NN
+6c1viPg1Hp2w32XSscOHWj44qfw7S9df4WWlW7EB
+
+Endpoint
+database-1.cz4jglokxrgg.us-west-2.rds.amazonaws.com
+Port
+5432
+
+aws cloudformation deploy --template-file cloudfront.yml --stack-name InitialStack --parameter-overrides WorkflowID=udapeople-kk1j287dhdfdse532
+aws configure set aws_session_token "......"
+WorkflowID=udapeople-kk1j287dhdfdse532
