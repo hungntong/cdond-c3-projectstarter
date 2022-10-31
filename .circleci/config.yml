@@ -190,9 +190,8 @@ jobs:
 
   run-migrations:
     docker:
-      # Docker image here that supports NodeJS
-    steps:
       - image: circleci/node:13.8.0
+    steps:      
       - attach_workspace:
           at: ~/
       - run:
@@ -337,8 +336,8 @@ workflows:
           #     only: [test-feature-branch]
       - configure-infrastructure:
           requires: [deploy-infrastructure]
-      # - run-migrations:
-      #     requires: [configure-infrastructure]
+      - run-migrations:
+          requires: [configure-infrastructure]
       # - deploy-frontend:
       #     requires: [run-migrations]
       # - deploy-backend:
