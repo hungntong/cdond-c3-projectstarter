@@ -24,3 +24,10 @@ Port
 aws cloudformation deploy --template-file cloudfront.yml --stack-name InitialStack --parameter-overrides WorkflowID=udapeople-kk1j287dhdfdse532
 aws configure set aws_session_token "......"
 WorkflowID=udapeople-kk1j287dhdfdse532
+
+Accepted Answer
+The problem seems to be related to the previous ubuntu ami that I used.
+
+I highly recommend using the ami:
+
+ami-07dd19a7900a1f049
