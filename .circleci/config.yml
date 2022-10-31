@@ -191,7 +191,8 @@ jobs:
   run-migrations:
     docker:
       - image: circleci/node:13.8.0
-    steps:      
+    steps:
+      - checkout      
       - attach_workspace:
           at: ~/
       - run:
