@@ -18,6 +18,7 @@ AKIA5WNSCYBSC6X264NN
 
 Endpoint
 database-1.cz4jglokxrgg.us-west-2.rds.amazonaws.com
+database-1.cz4jglokxrgg.us-west-2.rds.amazonaws.com
 Port
 5432
 
