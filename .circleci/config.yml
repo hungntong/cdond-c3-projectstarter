@@ -223,7 +223,7 @@ jobs:
                   echo "insecure" >> ~/.curlrc
                   curl https://kvdb.io/4hkvFqcN1Wuq35GLWsKF3r/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
               fi
-     # Here's where you will add some code to rollback on failur
+     # Here's where you will add some code to rollback on failure
       - destroy-environment       
 
   deploy-frontend:
