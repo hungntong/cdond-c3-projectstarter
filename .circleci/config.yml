@@ -199,7 +199,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Run migrations
+          name: Copying Env
           command: |
             cd backend
             echo ENVIRONMENT=$ENVIRONMENT > ".env"
@@ -212,16 +212,16 @@ jobs:
             echo TYPEORM_USERNAME=$TYPEORM_USERNAME >> ".env"
             echo TYPEORM_PASSWORD=$TYPEORM_PASSWORD >> ".env"
             echo TYPEORM_DATABASE=$TYPEORM_DATABASE >> ".env"
+      # - run:
+      #     name: "Scan/Audit backend"
+      #     command: |
+      #       cd backend
+      #       npm install
+      #       npm audit fix --force
+      #       npm audit fix --audit-level=critical --force
+      #       npm audit --audit-level=critical
       - run:
-          name: "Scan/Audit backend"
-          command: |
-            cd backend
-            npm install
-            npm audit fix --force
-            npm audit fix --audit-level=critical --force
-            npm audit --audit-level=critical
-      - run:
-          name: "Run migration"
+          name: Run migration
           command: |
             cd backend
             npm run migrations > migrations_dump.txt
