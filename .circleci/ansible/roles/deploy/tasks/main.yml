@@ -1,0 +1,17 @@
+---
+- name: "Extract artifact to home"
+  become: yes
+  unarchive:
+    src: ~/project/artifact.tar.gz
+    dest: /home/ubuntu
+    copy: no
+
+- name: "Install packages"
+  npm:
+    path: /home/ubuntu
+
+- name: "Run npm"
+  become: yes
+  shell: |
+    pm2 stop default
+    pm2 start npm -- start
