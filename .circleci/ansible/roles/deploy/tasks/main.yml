@@ -1,4 +1,11 @@
 ---
+- name: "Install dependencies"
+  become: true
+  apt:
+    name: ["nodejs", "npm", "python3", "tar", "gzip"]
+    state: latest
+    update_cache: yes
+    
 - name: "Extract artifact to home"
   become: yes
   unarchive:
