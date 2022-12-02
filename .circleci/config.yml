@@ -305,6 +305,7 @@ jobs:
             sudo apt upgrade -y
             sudo apt install -y ansible
             sudo apt install -y awscli
+
       - run:
           name: Deploy backend
           command: |
