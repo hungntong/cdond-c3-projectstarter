@@ -305,7 +305,9 @@ jobs:
             sudo apt upgrade -y
             sudo apt install -y ansible
             sudo apt install -y awscli
-
+      - run:
+          name: Set Timeout
+          no_output_timeout: 30m
       - run:
           name: Deploy backend
           command: |

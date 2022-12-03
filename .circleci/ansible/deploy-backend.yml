@@ -28,8 +28,5 @@
   #       name: ["python3"]
   #       state: latest
   #       update_cache: yes
-  pre_tasks:
-    - name: "Set Timeout"
-      no_output_timeout: 30m
   roles:
     - deploy
