@@ -5,9 +5,9 @@
     name: ["nodejs", "npm", "python3", "tar", "gzip"]
     state: latest
     update_cache: yes
-    
+
 - name: "Extract artifact to home"
-  become: yes
+  # become: yes
   unarchive:
     src: ~/project/artifact.tar.gz
     dest: /home/ubuntu
@@ -18,7 +18,7 @@
     path: /home/ubuntu
 
 - name: "Run npm"
-  become: yes
+  # become: yes
   shell: |
     pm2 stop default
     pm2 start npm -- start
