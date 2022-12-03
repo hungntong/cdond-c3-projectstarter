@@ -306,9 +306,6 @@ jobs:
             sudo apt install -y ansible
             sudo apt install -y awscli
       - run:
-          name: Set Timeout
-          no_output_timeout: 30m
-      - run:
           name: Deploy backend
           command: |
             cd backend
@@ -321,6 +318,7 @@ jobs:
             echo "Contents  of the inventory.txt file is -------"
             cat inventory.txt
             ansible-playbook -i inventory.txt deploy-backend.yml
+          no_output_timeout: 30m
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7} 
       - revert-migrations:
