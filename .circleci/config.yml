@@ -292,6 +292,7 @@ jobs:
   deploy-backend:
     docker:
       - image: circleci/node:13.8.0
+      # - image: python:3.7-alpine3.11
     steps:
       - checkout
       - add_ssh_keys:
@@ -305,17 +306,23 @@ jobs:
             sudo apt upgrade -y
             sudo apt install -y ansible
             sudo apt install -y awscli
+            # apk add --update ansible curl rsync openssh nodejs npm
+            # ansible --version
+            # pip install awscli
+            # aws --version            
       - run:
           name: Deploy backend
           command: |
             cd backend
             npm i
             npm run build
+            cp package* ./dist
             cd ..
             # Zip the directory
             tar -C backend -czvf artifact.tar.gz .
             pwd
             ls -al
+            #mv artifact.tar ~/project/.circleci/ansible/roles/deploy/files
             cd .circleci/ansible
             echo "Contents  of the inventory.txt file is -------"
             export ANSIBLE_HOST_KEY_CHECKING=False
