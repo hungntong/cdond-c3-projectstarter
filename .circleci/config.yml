@@ -421,7 +421,7 @@ jobs:
         # Checkout code from git11
         - checkout
         - run:
-            name: Get old stack workflow id and delete old stack
+            name: Get and delete old stack
             command: |
               # your code here
               export OldWorkflowID=$(aws cloudformation \
