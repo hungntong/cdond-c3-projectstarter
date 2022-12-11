@@ -437,6 +437,14 @@ jobs:
       steps:
         # Checkout code from git1
         - checkout
+        - run:
+            name: Install dependencies
+            command: |
+              # your code here
+              yum install -y tar gzip unzip
+              curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+              unzip awscliv2.zip
+              ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
         - attach_workspace:
             at: ~/
         - run:
