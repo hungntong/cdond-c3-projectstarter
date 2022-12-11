@@ -160,7 +160,7 @@ jobs:
           command: |
             aws ec2 describe-instances \
               --query 'Reservations[*].Instances[*].PublicIpAddress' \
-              --filters "Name=backend,Values=${CIRCLE_WORKFLOW_ID}" \
+              --filters "Name=tag:Name,Values=backend*}" \
               --output text >> ~/project/.circleci/ansible/inventory.txt
               cat ~/project/.circleci/ansible/inventory.txt
       - persist_to_workspace:
@@ -272,7 +272,7 @@ jobs:
       - run:
           name: Get backend url
           command: |
-            export BACKEND_IP=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --filters "Name=backend,Values=${CIRCLE_WORKFLOW_ID}"  --output text)
+            export BACKEND_IP=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --filters "Name=tag:Name,Values=backend*}"  --output text)
             echo "$BACKEND_IP"
             export API_URL="http://${BACKEND_IP}:3030"
             echo "API_URL = ${API_URL}"
@@ -360,7 +360,7 @@ jobs:
       - run:
           name: Get backend url and smoke test
           command: |
-            export BACKEND_IP=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --filters "Name=backend,Values=${CIRCLE_WORKFLOW_ID}"  --output text)
+            export BACKEND_IP=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --filters "Name=tag:Name,Values=backend*}"  --output text)
             echo "$BACKEND_IP"
             export API_URL="http://${BACKEND_IP}:3030"
             echo "${API_URL}"
