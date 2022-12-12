@@ -14,11 +14,6 @@
   apt:
     autoremove: yes
 
-# - name: "install node."
-#   become: yes
-#   apt:
-#     name: ["nodejs", "npm"]
-#     update_cache: yes
 - name: "install node"
   become: yes
   apt:
@@ -36,5 +31,3 @@
   npm:
     name: pm2
     global: yes
-    # production: yes
-    # state: present
