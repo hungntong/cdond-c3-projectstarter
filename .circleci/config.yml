@@ -322,13 +322,11 @@ jobs:
             cd backend
             npm i
             npm run build
-            cp package* ./dist
             cd ..
             # Zip the directory
             tar -C backend -czvf artifact.tar.gz .
             pwd
             ls -al
-            #mv artifact.tar ~/project/.circleci/ansible/roles/deploy/files
             cd .circleci/ansible
             echo "Contents  of the inventory.txt file is -------"
             export ANSIBLE_HOST_KEY_CHECKING=False
@@ -481,9 +479,6 @@ workflows:
           requires: [build-frontend]
       - deploy-infrastructure:
           requires: [test-frontend, test-backend, scan-frontend, scan-backend]
-          # filters:
-          #   branches:
-          #     only: [test-feature-branch]
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
