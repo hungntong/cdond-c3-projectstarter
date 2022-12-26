@@ -433,7 +433,7 @@ jobs:
         # Docker image here
         - image: amazon/aws-cli
       steps:
-        # Checkout code from git1
+        # Checkout code from git2
         - checkout
         - run:
             name: Install dependencies
