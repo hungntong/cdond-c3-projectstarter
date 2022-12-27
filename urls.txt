@@ -2,6 +2,6 @@ Public Url to GitHub repository (not private) [URL01]
 https://github.com/hungntong/cdond-c3-projectstarter/
 
 Public URL for your S3 Bucket (aka, your green candidate front-end) [URL02]
-udapeople-frontend-7a86c97
-http://udapeople-7a86c97.s3-website-us-west-2.amazonaws.com
+udapeople-frontend-ce5f9d0
+http://udapeople-ce5f9d0.s3-us-west-2.amazonaws.com/ (Please check URL02_SCREENSHOT and URL02_EMPLOYEEADDED_SCREENSHOT)
 
